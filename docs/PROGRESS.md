@@ -38,7 +38,8 @@ Note: firebase-functions declares engines node >=18; spec says Node 20 for funct
 - **Viva:** `docs/VIVA_QA.md`, 34 questions, numbers checked against `paper/results/`.
 - **Sensitivity analysis:** done (`exp4_sensitivity.csv`). Finding: the 7.3-point on-time gap between escalation and a fixed 3 km ring holds only at the defaults (20 km/h, 10 min); it falls under 1 point at 30 km/h or a 15-minute deadline. Paper updated, including Table `tab:e4`.
 - **Timings re-run:** geohash speedup at 50k responders varied 7.6x to 11.2x over three runs; paper now reports the range. Latency final run p50 1.94 ms, p95 2.71 ms, max 3.59 ms.
-- **UI redesign agent still running.** `web/style.css` (926 lines) and `index.html` are new, `web/app.js` is still the OLD version (last written 00:41), so the UI is probably inconsistent until the agent writes the script.
+- **UI redesign finished (2026-11-20).** web/app.js (1,636 lines), style.css and index.html are the new version and were pushed. Checked: syntax, no forbidden patterns, every API route used exists, runtime-built CSS classes all defined, 120 tests pass, plus a fake-DOM smoke run by the agent that wrote it. **Still never opened in a real browser**: layout, contrast, 360 px width, camera and photo flow, and the :has(), color-mix() and inert features are unverified.
+- (Superseded) UI redesign agent still running. `web/style.css` (926 lines) and `index.html` are new, `web/app.js` is still the OLD version (last written 00:41), so the UI is probably inconsistent until the agent writes the script.
 - **Unsupported claim removed** from slide 3 (no verified literature on novelty).
 - Still open: compile the paper, verify 33 citations, authors/institution, related work, UI browser test.
 

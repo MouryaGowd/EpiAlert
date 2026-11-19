@@ -44,7 +44,8 @@ The simulation results (experiments 1 and 2) are deterministic for the fixed see
 
 ## Honest limits
 
-- The browser UI has not been opened in a browser by the author of the code; only the HTTP API and pure functions are covered by tests.
+- The browser UI has never been opened in a real browser. Only the HTTP API and pure functions are covered by tests, plus a scripted fake-DOM run. Layout, contrast, small-screen behaviour and the camera flow are unverified; the UI needs a recent Chrome or Safari.
+- The paper in paper/ is an unfinished draft: it has not been compiled, 9 TODO markers remain, and only 3 of 36 candidate citations are verified.
 - Browser face detection (`FaceDetector`) is not available in every browser. When it is missing the app sends no photo, but the alert still goes out.
 - Latency numbers are loopback, one machine, no push service. They are not mobile-network latency.
 - Simulation parameters (acceptance rate, travel speed, density) are assumptions, labelled as such in the paper.
