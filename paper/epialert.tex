@@ -1,0 +1,179 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+
+% Anything that still needs a verified source is printed in red so it cannot be missed.
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\begin{document}
+
+\title{EpiAlert: Alerting Nearby Medical Volunteers Without Exposing Their Location --- Design and a Simulated Evaluation of Radius Escalation}
+
+\author{\IEEEauthorblockN{\todo{author names}}
+\IEEEauthorblockA{\todo{institution, guide, city, e-mail}}}
+
+\maketitle
+
+\begin{abstract}
+When a person collapses or is injured in a public place, medically trained people nearby are usually unaware. We present EpiAlert, a prototype that lets a bystander report an incident and alerts verified, on-duty medical volunteers within 2--3~km. We focus on three design questions: how widely to alert so that a volunteer arrives quickly without spamming volunteers, how much responder-location privacy costs in alert accuracy, and how the lookup scales. We compare four alerting strategies in a Monte Carlo simulation with assumed parameters. Escalating from 2~km to 3~km only when nobody accepts within 60~s sends about one third fewer alerts than a fixed 3~km radius (3.84 versus 5.66 per incident at 0.2 responders/km\textsuperscript{2}) but lowers the share of incidents with a responder on scene within 10~minutes by 7.3 percentage points (65.0\% versus 72.3\%). This gap depends on the assumed travel speed and deadline and vanishes at 30~km/h or a 15-minute deadline. Adding planar-Laplace noise with a mean of 1~km to responder locations causes 30.7\% of in-range responders to be missed. A geohash index returns exactly the same responders as a full scan and was 6.0--8.0$\times$ faster for 10{,}000--100{,}000 responders on one laptop (the ratio varied between runs). These are simulation and single-machine results. We ran no field study or user study, and the system has not been tested on real phones or push services.
+\end{abstract}
+
+\begin{IEEEkeywords}
+volunteer first responders, emergency alerting, location privacy, geohash, simulation
+\end{IEEEkeywords}
+
+\section{Introduction}
+Mobile-phone dispatch of trained volunteers has been studied for out-of-hospital cardiac arrest (OHCA). In a randomised trial in Stockholm with 667 cardiac arrests, bystander CPR was started in 62\% of cases in the intervention group (188 of 305) and 48\% in the control group (172 of 360), a difference of 14 percentage points \cite{ringh2015mobile}. In a Swedish registry of 30{,}381 witnessed arrests, 30-day survival was 10.5\% when CPR began before the ambulance arrived and 4.0\% otherwise, and shorter delays to CPR were associated with higher survival \cite{hasselqvist2015early}. Both studies concern cardiac arrest in Sweden. We do not claim their results transfer to other emergencies or to India. \todo{verified Indian evidence on bystander response and ambulance times}
+
+EpiAlert is a web prototype of a similar idea for general medical incidents in a city (we assume Bangalore). A bystander reports an incident with a location and an optional face-blurred photo. Verified volunteers who are on duty and recently reported their position are alerted. It is not an ambulance service and does not replace 112 or 108.
+
+We do not claim that volunteer dispatch is new. Our contributions are limited to (i) an open design that keeps responder locations unreadable by any client, expires data after 24~h, and falls back to human review when credential verification is uncertain; and (ii) a reproducible, clearly labelled simulation and measurement study of three design questions: alert strategy, the cost of location noise, and lookup scaling.
+
+\section{Related Work}
+\textbf{Volunteer dispatch for cardiac arrest.} The closest evidence for our premise comes from Sweden. In a randomised trial in Stockholm, laypersons were alerted through their mobile phones when a cardiac arrest occurred near them; bystander CPR was started in 62\% of cases in the intervention group against 48\% in the control group \cite{ringh2015mobile}. A registry study of witnessed arrests found higher 30-day survival when CPR began before the ambulance arrived, and a shorter delay to CPR was associated with better survival \cite{hasselqvist2015early}. These studies motivate the premise that minutes matter and that nearby trained people can act before an ambulance. They concern cardiac arrest in a country with a dispatch-centre-run system, so they do not show that a bystander-triggered system for general incidents works in an Indian city.
+
+\textbf{What we have not reviewed.} Our literature review is incomplete. Systematic reviews of citizen-responder systems, deployed systems such as GoodSAM, HeartRunner and HartslagNu, studies of alert fatigue among volunteers, work on location privacy and face de-identification, and Indian data on bystander response and ambulance times are not discussed, because we have not yet opened and checked those sources and we do not cite from memory. Candidate sources are listed in the project's citation ledger. We therefore make no claim that the combination of features in EpiAlert is new. \todo{replace this paragraph with a verified review of these areas before submission}
+
+\section{System Design}
+\subsection{Roles and verification}
+Users sign in with a phone number. A user may submit credentials (name, qualification, registration number, State Medical Council, year). A registry lookup sits behind a \texttt{Verifier} interface. An exact name match on an active, non-blacklisted record is accepted. A mismatch, an inactive record or a blacklisted record is rejected with a visible reason. A lookup failure, a timeout, an unknown record or a partial name match is sent to a human reviewer; the system never approves or silently rejects in these cases. We found no evidence of an official public API for the national medical register, and access to the ABDM professionals registry appeared to require registration with the programme. \todo{verify both against official pages}. The prototype therefore ships a deterministic mock registry and a manual-review verifier only.
+
+\subsection{Alerting}
+When an incident is reported, the server alerts immediately and never waits for the photo. Candidates are on-duty, verified, not suspended, not the reporter, and have updated their position within 10~minutes. They must lie within the current ring (2~km initially) by an exact great-circle distance test. They are ranked by speciality match, then distance, and at most 20 are alerted per ring. If nobody has accepted after 60~s the ring widens to 3~km and only newly in-range responders are alerted. If nobody has accepted after 180~s the reporter is told to call 108. A second report within 100~m and 10~minutes is merged into the first and does not alert again. Posts are limited to three per 10~minutes, and two flags from alerted responders hide a post.
+
+\subsection{Privacy and data lifecycle}
+Responder positions exist only while a responder is on duty and are never sent to any client. A reporter sees only the number of volunteers coming and each distance rounded to 100~m. A responder never sees the reporter's identity. Photos are taken in the browser, faces are detected and pixelated on the canvas pixels, and the image is re-encoded, which discards metadata. If the browser cannot detect faces the photo is not sent but the alert still is. We treat blur as best-effort: a missed face remains visible, so the reporter must confirm the blurred preview. Incidents become unreadable at 24~h and are then deleted by a sweeper. We enforce expiry in the read path and by a sweeper rather than relying only on database TTL, because the Firestore documentation states that deletion typically happens within 24 hours after expiry \cite{firebase_ttl}. An anonymised audit entry (coarse area, problem type, counts, time to first acceptance) is written when an incident ends; it contains no identifiers, notes or exact location.
+
+\section{Implementation}
+The prototype is a Node.js server using the built-in HTTP module, an in-memory store, and a browser client without a framework. Live alerts use server-sent events. The login code is displayed on screen (no SMS is sent). The engine takes an injected clock, notifier and verifier, so time-dependent behaviour is tested without waiting. The repository includes 120 automated tests (unit and HTTP-level), all passing at the time of writing. The browser interface has not been exercised by an automated browser test.
+
+\section{Evaluation}
+\subsection{Method}
+Experiments 1 and 2 are Monte Carlo simulations over 5{,}000 incidents per run and 10 random seeds, reported as mean and standard deviation across seeds. Responders are Poisson-distributed in a disk of 8~km radius around each incident. All strategies see the same responders for an incident. The parameters below are \emph{assumed}, not measured: an alerted responder accepts with probability 0.4; the accept delay is log-normal with median 25~s and $\sigma=0.8$; travel is straight-line distance times 1.4 at 20~km/h; the deadline is 10~minutes. The first metric we tried, the median arrival time over incidents that were reached, is biased because strategies with a narrower radius are reached only when a responder is close; we therefore report the share of \emph{all} incidents with a responder on scene within the deadline.
+
+\subsection{Experiment 1: alerting strategy}
+We compare alerting everyone, a fixed 2~km ring, a fixed 3~km ring (both capped at 20), and escalation from 2 to 3~km after 60~s without acceptance. Table~\ref{tab:e1} gives results at three densities of on-duty responders.
+
+\begin{table}[t]
+\caption{Alerting strategies (simulation, assumed parameters). On time = share of all incidents with a responder on scene within 10~min.}
+\label{tab:e1}
+\centering
+\small
+\begin{tabular}{@{}rlrrr@{}}
+\toprule
+Density/km$^2$ & Strategy & Reached \% & On time \% & Alerts/incident \\
+\midrule
+0.1 & Everyone & 99.96 & 47.01 & 20.12 \\
+0.1 & Fixed 2 km & 39.63 & 39.40 & 1.26 \\
+0.1 & Fixed 3 km & 67.73 & 47.01 & 2.82 \\
+0.1 & Escalate & 67.73 & 40.82 & 2.27 \\
+\midrule
+0.2 & Everyone & 100.00 & 72.31 & 40.24 \\
+0.2 & Fixed 2 km & 63.43 & 63.17 & 2.51 \\
+0.2 & Fixed 3 km & 89.74 & 72.31 & 5.66 \\
+0.2 & Escalate & 89.74 & 65.04 & 3.84 \\
+\midrule
+0.4 & Everyone & 100.00 & 92.03 & 80.37 \\
+0.4 & Fixed 2 km & 86.69 & 86.52 & 5.03 \\
+0.4 & Fixed 3 km & 98.85 & 92.03 & 11.30 \\
+0.4 & Escalate & 98.85 & 87.78 & 6.12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Escalation does not dominate. At 0.2 responders/km\textsuperscript{2} it sends 32\% fewer alerts than a fixed 3~km ring (3.84 versus 5.66) and reaches the same share of incidents (89.74\%), but it has a responder on scene in time for 7.3 percentage points fewer incidents (65.04\% versus 72.31\%), because it waits 60~s before widening. Compared with a fixed 2~km ring it reaches 26.3 percentage points more incidents and is 1.9 points better on time, at 1.33 more alerts per incident. Alerting everyone and the fixed 3~km ring have identical on-time rates at every density. At our assumed 20~km/h and a 1.4 detour factor, a volunteer covers about 2.4~km in 10~minutes, so responders beyond that range add reach but not on-time arrivals. The sensitivity analysis below shows how much this depends on those assumptions.
+
+\subsection{Sensitivity of Experiment 1}
+The conclusion above depends on three assumed parameters, so we varied each while holding the others at their defaults (density 0.2/km\textsuperscript{2}, 5{,}000 incidents, 10 seeds). Table~\ref{tab:e4} shows the on-time share for escalation and for a fixed 3~km ring.
+
+\begin{table}[t]
+\caption{Sensitivity of on-time response (\%, all incidents) to assumed parameters, density 0.2/km\textsuperscript{2}.}
+\label{tab:e4}
+\centering
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Parameter & Value & Escalate & Fixed 3 km & Gap (pp) \\
+\midrule
+Speed (km/h) & 10 & 27.51 & 27.51 & 0.00 \\
+ & 15 & 51.30 & 51.30 & 0.00 \\
+ & 20 & 65.04 & 72.31 & $-$7.27 \\
+ & 30 & 88.87 & 89.57 & $-$0.70 \\
+\midrule
+Deadline (s) & 300 & 24.93 & 24.93 & 0.00 \\
+ & 600 & 65.04 & 72.31 & $-$7.27 \\
+ & 900 & 89.58 & 89.70 & $-$0.12 \\
+\midrule
+Accept prob. & 0.2 & 40.87 & 47.32 & $-$6.45 \\
+ & 0.4 & 65.04 & 72.31 & $-$7.27 \\
+ & 0.6 & 79.27 & 85.28 & $-$6.01 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The escalation penalty is largest at our defaults and shrinks to under one point when responders can travel faster or the deadline is longer, because then nearly every responder who accepts can arrive in time whatever the radius. Escalation also always sends fewer alerts (3.84 versus 5.66 per incident at this density), independent of these parameters. The honest summary is that escalation saves alerts at a cost in response time that is material only when time is tight.
+
+\subsection{Experiment 2: cost of blurring responder location}
+Each responder reports a position perturbed by planar-Laplace noise with parameter $\epsilon$ per km, which has mean displacement $2/\epsilon$ km, and the server alerts using the noisy position (density 0.3/km\textsuperscript{2}, 2~km ring). Table~\ref{tab:e2} shows that the cost grows quickly. With 0.4~km mean noise, 12.7\% of in-range responders are missed and 12.7\% of alerts go to out-of-range responders; with 1~km it is about 31\% for both. This sketches a trade-off; it does not establish how much noise protects a real responder, and we did not evaluate any attack. \todo{cite geo-indistinguishability after the source is opened}
+
+\begin{table}[t]
+\caption{Effect of location noise (simulation). Miss = in-range responders not alerted.}
+\label{tab:e2}
+\centering
+\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Mean noise (km) & Missed \% & Out-of-range alerts \% & Incidents reached \% \\
+\midrule
+0 & 0.00 & 0.00 & 100.00 \\
+0.2 & 6.38 & 6.34 & 99.34 \\
+0.4 & 12.70 & 12.73 & 98.52 \\
+1.0 & 30.74 & 30.87 & 94.86 \\
+2.0 & 54.33 & 54.26 & 84.25 \\
+4.0 & 77.89 & 75.58 & 57.92 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Experiment 3: geohash index versus full scan}
+We stored 1{,}000 to 250{,}000 synthetic responders, built a sorted geohash index, and ran 300 queries of 2~km radius per size, followed by an exact distance filter. The index returned exactly the same responders as a full scan in every query (the experiment aborts otherwise). Median time per query on an Apple M1 Pro with Node 22 is in Table~\ref{tab:e3}. These timings vary between runs: across three runs of the same code the speedup at 50{,}000 responders ranged from 7.6$\times$ to 11.2$\times$, so we report the range rather than one figure. The data structure is an in-memory sorted array with binary search, not a database, so the numbers show the benefit of range pruning and not the performance of any particular database. At 250{,}000 responders the gain falls to about 4$\times$ in every run.
+
+\begin{table}[t]
+\caption{Lookup time per query, median (one machine, in-memory).}
+\label{tab:e3}
+\centering
+\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Responders & Full scan ($\mu$s) & Index ($\mu$s) & Speedup \\
+\midrule
+1{,}000 & 22.1 & 11.4 & 1.9$\times$ \\
+10{,}000 & 214.4 & 26.7 & 8.0$\times$ \\
+50{,}000 & 1113.8 & 146.7 & 7.6$\times$ \\
+100{,}000 & 2145.7 & 359.8 & 6.0$\times$ \\
+250{,}000 & 5464.4 & 1398.4 & 3.9$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Server latency}
+Over 60 trials after 5 warm-up trials, the time from submitting an incident to the responder's live-alert stream receiving it was 1.94~ms at the median, 2.71~ms at the 95th percentile and 3.59~ms at the maximum (final run; an earlier run gave 1.96, 2.55 and 4.38~ms). This was measured over loopback on one machine with a shared clock, an in-memory store and a single in-range responder. It measures server and stream overhead only. It does not include a mobile network or a push service, and says nothing about delivery times to real phones.
+
+\section{Limitations}
+The evaluation is simulated with assumed parameters; acceptance rates, speeds and responder density in a real city are unknown, and we ran no field study, pilot or user study. The browser interface was not covered by an automated browser test, and face detection depends on a browser feature that is not universally available. Blur is best-effort and not a guarantee of anonymity; pixelation can leave a person recognisable. \todo{cite face de-identification literature after verifying} Credential verification is best-effort and the prototype uses a mock registry. The system could be misused to lure a responder to an unsafe place; we mitigate this with phone-based login, rate limits, flagging and suspension, hiding the reporter's identity, and a scene-safety warning, but we have not evaluated these controls against an adversary. Android background-delivery behaviour (power-saving modes, vendor battery managers) was not tested. Legal protection for volunteers in India is limited in scope and we make no claim of immunity. \todo{verify section 134A text and scope from official source before saying anything about it}
+
+\section{Conclusion}
+Escalating the alert radius only when nobody accepts reduces alert volume by roughly one third relative to a fixed 3~km radius at the densities we simulated, at the cost of slower arrival, and the trade-off depends on assumed travel speed. Noise on responder location degrades alert accuracy quickly. A geohash index preserves exact results while cutting lookup time. Real-world validation with field data is the main open work.
+
+\section*{Reproducibility}
+All numbers come from \texttt{npm run experiments} in the \texttt{functions} directory; the CSV, JSON and SVG outputs are in \texttt{paper/results}. Simulations are deterministic for the fixed seeds; timings depend on the machine. \todo{repository URL}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

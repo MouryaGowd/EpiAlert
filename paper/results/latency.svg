@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="Post to alert received, 60 trials (loopback)"><rect width="640" height="360" fill="#fff"/>
+<text x="320" y="22" text-anchor="middle" font-size="14" font-weight="600" fill="#111">Post to alert received, 60 trials (loopback)</text>
+<line x1="62" y1="300" x2="624" y2="300" stroke="#e3e6ea"/><text x="54" y="304" text-anchor="end" fill="#333">0</text>
+<line x1="62" y1="234.153668875272" x2="624" y2="234.153668875272" stroke="#e3e6ea"/><text x="54" y="238.153668875272" text-anchor="end" fill="#333">1</text>
+<line x1="62" y1="168.30733775054395" x2="624" y2="168.30733775054395" stroke="#e3e6ea"/><text x="54" y="172.30733775054395" text-anchor="end" fill="#333">2</text>
+<line x1="62" y1="102.46100662581591" x2="624" y2="102.46100662581591" stroke="#e3e6ea"/><text x="54" y="106.46100662581591" text-anchor="end" fill="#333">3</text>
+<rect x="95.72" y="172.47208527095648" width="119.89333333333335" height="127.52791472904353" fill="#0072B2"/>
+<text x="155.66666666666669" y="167.47208527095648" text-anchor="middle" fill="#111">1.94</text>
+<text x="155.66666666666669" y="318" text-anchor="middle" fill="#333">p50</text>
+<rect x="283.05333333333334" y="121.38046174748024" width="119.89333333333335" height="178.61953825251976" fill="#D55E00"/>
+<text x="343" y="116.38046174748024" text-anchor="middle" fill="#111">2.71</text>
+<text x="343" y="318" text-anchor="middle" fill="#333">p95</text>
+<rect x="470.38666666666666" y="63.63636363636368" width="119.89333333333335" height="236.36363636363632" fill="#009E73"/>
+<text x="530.3333333333334" y="58.63636363636368" text-anchor="middle" fill="#111">3.59</text>
+<text x="530.3333333333334" y="318" text-anchor="middle" fill="#333">max</text>
+<line x1="62" y1="300" x2="624" y2="300" stroke="#333"/><text transform="translate(16 170) rotate(-90)" text-anchor="middle" fill="#111">Milliseconds</text></svg>

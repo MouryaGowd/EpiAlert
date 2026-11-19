@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="Responder lookup time (2 km radius)">
+<rect width="640" height="380" fill="#ffffff"/>
+<text x="320" y="22" text-anchor="middle" font-size="14" font-weight="600" fill="#111">Responder lookup time (2 km radius)</text>
+<line x1="62" y1="217.65577573159632" x2="624" y2="217.65577573159632" stroke="#e3e6ea"/>
+<text x="54" y="221.65577573159632" text-anchor="end" fill="#333">100</text>
+<line x1="62" y1="124.07560966041905" x2="624" y2="124.07560966041905" stroke="#e3e6ea"/>
+<text x="54" y="128.07560966041905" text-anchor="end" fill="#333">1000</text>
+<line x1="62" y1="306" x2="62" y2="310" stroke="#333"/>
+<text x="62" y="324" text-anchor="middle" fill="#333">1000</text>
+<line x1="296.36783154188737" y1="306" x2="296.36783154188737" y2="310" stroke="#333"/>
+<text x="296.36783154188737" y="324" text-anchor="middle" fill="#333">10000</text>
+<line x1="530.7356630837747" y1="306" x2="530.7356630837747" y2="310" stroke="#333"/>
+<text x="530.7356630837747" y="324" text-anchor="middle" fill="#333">100000</text>
+<line x1="62" y1="306" x2="624" y2="306" stroke="#333"/><line x1="62" y1="40" x2="62" y2="306" stroke="#333"/>
+<text x="343" y="344" text-anchor="middle" fill="#111">Responders stored (log scale)</text>
+<text transform="translate(16 173) rotate(-90)" text-anchor="middle" fill="#111">Median µs per query (log scale)</text>
+<polyline fill="none" stroke="#0072B2" stroke-width="2" points="62.0,279.0 296.4,186.7 460.2,119.7 530.7,93.0 624.0,55.1"/>
+<circle cx="62.0" cy="279.0" r="3.4" fill="#0072B2"/>
+<circle cx="296.4" cy="186.7" r="3.4" fill="#0072B2"/>
+<circle cx="460.2" cy="119.7" r="3.4" fill="#0072B2"/>
+<circle cx="530.7" cy="93.0" r="3.4" fill="#0072B2"/>
+<circle cx="624.0" cy="55.1" r="3.4" fill="#0072B2"/>
+<line x1="62" y1="360" x2="84" y2="360" stroke="#0072B2" stroke-width="2"/><text x="90" y="364" fill="#111">Full scan</text>
+<polyline fill="none" stroke="#D55E00" stroke-width="2" points="62.0,306.0 296.4,271.3 460.2,202.1 530.7,165.6 624.0,110.4"/>
+<circle cx="62.0" cy="306.0" r="3.4" fill="#D55E00"/>
+<circle cx="296.4" cy="271.3" r="3.4" fill="#D55E00"/>
+<circle cx="460.2" cy="202.1" r="3.4" fill="#D55E00"/>
+<circle cx="530.7" cy="165.6" r="3.4" fill="#D55E00"/>
+<circle cx="624.0" cy="110.4" r="3.4" fill="#D55E00"/>
+<line x1="249.33333333333334" y1="360" x2="271.33333333333337" y2="360" stroke="#D55E00" stroke-width="2"/><text x="277.33333333333337" y="364" fill="#111">Geohash index + exact filter</text>
+</svg>

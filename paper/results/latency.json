@@ -1,0 +1,23 @@
+{
+  "conditions": "Single process, loopback (127.0.0.1), one machine, shared clock, in-memory store, one on-duty responder in range, no real FCM and no radio network. Measures server and browser-stream overhead only, NOT mobile network or push-service latency.",
+  "machine": {
+    "cpu": "Apple M1 Pro",
+    "node": "v22.23.1",
+    "platform": "darwin arm64"
+  },
+  "warmup": 5,
+  "postMs": {
+    "n": 60,
+    "p50": 1.8637084999991202,
+    "p95": 2.628714600000967,
+    "max": 3.413582999997743,
+    "min": 0.6905000000006112
+  },
+  "postToAlertReceivedMs": {
+    "n": 60,
+    "p50": 1.936750500000926,
+    "p95": 2.712672599999132,
+    "max": 3.589625000000524,
+    "min": 0.7682500000009895
+  }
+}

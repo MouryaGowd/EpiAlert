@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="Cost of blurring responder location">
+<rect width="640" height="380" fill="#ffffff"/>
+<text x="320" y="22" text-anchor="middle" font-size="14" font-weight="600" fill="#111">Cost of blurring responder location</text>
+<line x1="62" y1="306" x2="624" y2="306" stroke="#e3e6ea"/>
+<text x="54" y="310" text-anchor="end" fill="#333">0</text>
+<line x1="62" y1="243.08364738388843" x2="624" y2="243.08364738388843" stroke="#e3e6ea"/>
+<text x="54" y="247.08364738388843" text-anchor="end" fill="#333">25</text>
+<line x1="62" y1="180.16729476777687" x2="624" y2="180.16729476777687" stroke="#e3e6ea"/>
+<text x="54" y="184.16729476777687" text-anchor="end" fill="#333">50</text>
+<line x1="62" y1="117.25094215166527" x2="624" y2="117.25094215166527" stroke="#e3e6ea"/>
+<text x="54" y="121.25094215166527" text-anchor="end" fill="#333">75</text>
+<line x1="62" y1="54.33458953555373" x2="624" y2="54.33458953555373" stroke="#e3e6ea"/>
+<text x="54" y="58.33458953555373" text-anchor="end" fill="#333">100</text>
+<line x1="62" y1="306" x2="62" y2="310" stroke="#333"/>
+<text x="62" y="324" text-anchor="middle" fill="#333">0.1</text>
+<line x1="167.6008254865185" y1="306" x2="167.6008254865185" y2="310" stroke="#333"/>
+<text x="167.6008254865185" y="324" text-anchor="middle" fill="#333">0.2</text>
+<line x1="273.2016509730369" y1="306" x2="273.2016509730369" y2="310" stroke="#333"/>
+<text x="273.2016509730369" y="324" text-anchor="middle" fill="#333">0.4</text>
+<line x1="412.7983490269631" y1="306" x2="412.7983490269631" y2="310" stroke="#333"/>
+<text x="412.7983490269631" y="324" text-anchor="middle" fill="#333">1</text>
+<line x1="518.3991745134815" y1="306" x2="518.3991745134815" y2="310" stroke="#333"/>
+<text x="518.3991745134815" y="324" text-anchor="middle" fill="#333">2</text>
+<line x1="624" y1="306" x2="624" y2="310" stroke="#333"/>
+<text x="624" y="324" text-anchor="middle" fill="#333">4</text>
+<line x1="62" y1="306" x2="624" y2="306" stroke="#333"/><line x1="62" y1="40" x2="62" y2="306" stroke="#333"/>
+<text x="343" y="344" text-anchor="middle" fill="#111">Mean location noise in km (planar Laplace, log scale)</text>
+<text transform="translate(16 173) rotate(-90)" text-anchor="middle" fill="#111">Percent</text>
+<polyline fill="none" stroke="#0072B2" stroke-width="2" points="62.0,297.9 167.6,289.9 273.2,274.0 412.8,228.6 518.4,169.3 624.0,110.0"/>
+<line x1="62" y1="297.49780591141126" x2="62" y2="298.39130841173056" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="62.0" cy="297.9" r="3.4" fill="#0072B2"/>
+<line x1="167.6008254865185" y1="289.45318923116764" x2="167.6008254865185" y2="290.4311261288004" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="167.6" cy="289.9" r="3.4" fill="#0072B2"/>
+<line x1="273.2016509730369" y1="273.48197160904795" x2="273.2016509730369" y2="274.5908178531165" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="273.2" cy="274.0" r="3.4" fill="#0072B2"/>
+<line x1="412.7983490269631" y1="227.97764989850162" x2="412.7983490269631" y2="229.31868868211043" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="412.8" cy="228.6" r="3.4" fill="#0072B2"/>
+<line x1="518.3991745134815" y1="168.41294515796355" x2="518.3991745134815" y2="170.1517501729157" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="518.4" cy="169.3" r="3.4" fill="#0072B2"/>
+<line x1="624" y1="109.20147203320647" x2="624" y2="110.74401353676691" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="624.0" cy="110.0" r="3.4" fill="#0072B2"/>
+<line x1="62" y1="360" x2="84" y2="360" stroke="#0072B2" stroke-width="2"/><text x="90" y="364" fill="#111">Responders missed (%)</text>
+<polyline fill="none" stroke="#D55E00" stroke-width="2" points="62.0,298.1 167.6,290.0 273.2,274.0 412.8,228.3 518.4,169.5 624.0,115.8"/>
+<line x1="62" y1="297.78766421843926" x2="62" y2="298.312343683744" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="62.0" cy="298.1" r="3.4" fill="#D55E00"/>
+<line x1="167.6008254865185" y1="289.5691626433684" x2="167.6008254865185" y2="290.5038191847392" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="167.6" cy="290.0" r="3.4" fill="#D55E00"/>
+<line x1="273.2016509730369" y1="273.4013138613307" x2="273.2016509730369" y2="274.54783538606625" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="273.2" cy="274.0" r="3.4" fill="#D55E00"/>
+<line x1="412.7983490269631" y1="227.6435795640959" x2="412.7983490269631" y2="229.0023141761868" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="412.8" cy="228.3" r="3.4" fill="#D55E00"/>
+<line x1="518.3991745134815" y1="169.19432405796803" x2="518.3991745134815" y2="169.70835834024172" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="518.4" cy="169.5" r="3.4" fill="#D55E00"/>
+<line x1="624" y1="115.2172089485847" x2="624" y2="116.35221364698293" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="624.0" cy="115.8" r="3.4" fill="#D55E00"/>
+<line x1="249.33333333333334" y1="360" x2="271.33333333333337" y2="360" stroke="#D55E00" stroke-width="2"/><text x="277.33333333333337" y="364" fill="#111">Alerts to out-of-range (%)</text>
+<polyline fill="none" stroke="#009E73" stroke-width="2" points="62.0,55.1 167.6,56.0 273.2,58.1 412.8,67.3 518.4,94.0 624.0,160.2"/>
+<circle cx="62.0" cy="55.1" r="3.4" fill="#009E73"/>
+<circle cx="167.6" cy="56.0" r="3.4" fill="#009E73"/>
+<circle cx="273.2" cy="58.1" r="3.4" fill="#009E73"/>
+<circle cx="412.8" cy="67.3" r="3.4" fill="#009E73"/>
+<circle cx="518.4" cy="94.0" r="3.4" fill="#009E73"/>
+<circle cx="624.0" cy="160.2" r="3.4" fill="#009E73"/>
+<line x1="436.6666666666667" y1="360" x2="458.6666666666667" y2="360" stroke="#009E73" stroke-width="2"/><text x="464.6666666666667" y="364" fill="#111">Incidents still reached (%)</text>
+</svg>

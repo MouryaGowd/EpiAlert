@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="Incidents reaching a responder vs. density">
+<rect width="640" height="380" fill="#ffffff"/>
+<text x="320" y="22" text-anchor="middle" font-size="14" font-weight="600" fill="#111">Incidents reaching a responder vs. density</text>
+<line x1="62" y1="288" x2="624" y2="288" stroke="#e3e6ea"/>
+<text x="54" y="292" text-anchor="end" fill="#333">0</text>
+<line x1="62" y1="229.5108759835695" x2="624" y2="229.5108759835695" stroke="#e3e6ea"/>
+<text x="54" y="233.5108759835695" text-anchor="end" fill="#333">25</text>
+<line x1="62" y1="171.02175196713898" x2="624" y2="171.02175196713898" stroke="#e3e6ea"/>
+<text x="54" y="175.02175196713898" text-anchor="end" fill="#333">50</text>
+<line x1="62" y1="112.53262795070847" x2="624" y2="112.53262795070847" stroke="#e3e6ea"/>
+<text x="54" y="116.53262795070847" text-anchor="end" fill="#333">75</text>
+<line x1="62" y1="54.043503934277936" x2="624" y2="54.043503934277936" stroke="#e3e6ea"/>
+<text x="54" y="58.043503934277936" text-anchor="end" fill="#333">100</text>
+<line x1="268.4122795673694" y1="288" x2="268.4122795673694" y2="292" stroke="#333"/>
+<text x="268.4122795673694" y="306" text-anchor="middle" fill="#333">0.1</text>
+<line x1="563.7214892428965" y1="288" x2="563.7214892428965" y2="292" stroke="#333"/>
+<text x="563.7214892428965" y="306" text-anchor="middle" fill="#333">1</text>
+<line x1="62" y1="288" x2="624" y2="288" stroke="#333"/><line x1="62" y1="40" x2="62" y2="288" stroke="#333"/>
+<text x="343" y="326" text-anchor="middle" fill="#111">On-duty responders per km² (log scale)</text>
+<text transform="translate(16 164) rotate(-90)" text-anchor="middle" fill="#111">Incidents with an accepting responder (%)</text>
+<polyline fill="none" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4" points="62.0,99.9 179.5,58.2 268.4,54.1 357.3,54.0 446.2,54.0 535.1,54.0 624.0,54.0"/>
+<line x1="62" y1="98.50887959901357" x2="62" y2="101.298432987148" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="62.0" cy="99.9" r="3.4" fill="#0072B2"/>
+<line x1="179.5153494592118" y1="57.564119039229496" x2="179.5153494592118" y2="58.73944097115452" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="179.5" cy="58.2" r="3.4" fill="#0072B2"/>
+<line x1="268.4122795673694" y1="54.06229476801872" x2="268.4122795673694" y2="54.193161777704404" stroke="#0072B2" stroke-width="1.2"/>
+<circle cx="268.4" cy="54.1" r="3.4" fill="#0072B2"/>
+<circle cx="357.3" cy="54.0" r="3.4" fill="#0072B2"/>
+<circle cx="446.2" cy="54.0" r="3.4" fill="#0072B2"/>
+<circle cx="535.1" cy="54.0" r="3.4" fill="#0072B2"/>
+<circle cx="624.0" cy="54.0" r="3.4" fill="#0072B2"/>
+<line x1="62" y1="342" x2="84" y2="342" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4"/><text x="90" y="346" fill="#111">Alert everyone</text>
+<polyline fill="none" stroke="#D55E00" stroke-width="2" points="62.0,265.2 179.5,235.7 268.4,195.3 357.3,139.6 446.2,85.2 535.1,58.3 624.0,54.1"/>
+<line x1="62" y1="263.85245442427777" x2="62" y2="266.5634618822769" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="62.0" cy="265.2" r="3.4" fill="#D55E00"/>
+<line x1="179.5153494592118" y1="234.57944502275802" x2="179.5153494592118" y2="236.85135949570684" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="179.5" cy="235.7" r="3.4" fill="#D55E00"/>
+<line x1="268.4122795673694" y1="193.94252978993626" x2="268.4122795673694" y2="196.63290968821505" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="268.4" cy="195.3" r="3.4" fill="#D55E00"/>
+<line x1="357.30920967552714" y1="137.85731201588658" x2="357.30920967552714" y2="141.32676055545312" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="357.3" cy="139.6" r="3.4" fill="#D55E00"/>
+<line x1="446.20613978368476" y1="84.20876285236355" x2="446.20613978368476" y2="86.15746426888754" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="446.2" cy="85.2" r="3.4" fill="#D55E00"/>
+<line x1="535.1030698918423" y1="57.73300317039485" x2="535.1030698918423" y2="58.767080296684384" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="535.1" cy="58.3" r="3.4" fill="#D55E00"/>
+<line x1="624" y1="54.07046115384267" x2="624" y2="54.21307017140842" stroke="#D55E00" stroke-width="1.2"/>
+<circle cx="624.0" cy="54.1" r="3.4" fill="#D55E00"/>
+<line x1="249.33333333333334" y1="342" x2="271.33333333333337" y2="342" stroke="#D55E00" stroke-width="2"/><text x="277.33333333333337" y="346" fill="#111">Fixed 2 km</text>
+<polyline fill="none" stroke="#009E73" stroke-width="2" points="62.0,240.1 179.5,186.7 268.4,129.5 357.3,78.0 446.2,56.7 535.1,54.1 624.0,54.1"/>
+<line x1="62" y1="238.78106778601324" x2="62" y2="241.4184262049949" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="62.0" cy="240.1" r="3.4" fill="#009E73"/>
+<line x1="179.5153494592118" y1="185.23707249881642" x2="179.5153494592118" y2="188.20339320748138" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="179.5" cy="186.7" r="3.4" fill="#009E73"/>
+<line x1="268.4122795673694" y1="128.53612038564222" x2="268.4122795673694" y2="130.5276935240454" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="268.4" cy="129.5" r="3.4" fill="#009E73"/>
+<line x1="357.30920967552714" y1="77.0432196094105" x2="357.30920967552714" y2="79.04230299198889" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="357.3" cy="78.0" r="3.4" fill="#009E73"/>
+<line x1="446.20613978368476" y1="56.400428230214374" x2="446.20613978368476" y2="57.04886252816786" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="446.2" cy="56.7" r="3.4" fill="#009E73"/>
+<line x1="535.1030698918423" y1="54.04402749907513" x2="535.1030698918423" y2="54.11784644822174" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="535.1" cy="54.1" r="3.4" fill="#009E73"/>
+<line x1="624" y1="54.03773584905662" x2="624" y2="54.11477983839757" stroke="#009E73" stroke-width="1.2"/>
+<circle cx="624.0" cy="54.1" r="3.4" fill="#009E73"/>
+<line x1="436.6666666666667" y1="342" x2="458.6666666666667" y2="342" stroke="#009E73" stroke-width="2"/><text x="464.6666666666667" y="346" fill="#111">Fixed 3 km</text>
+<polyline fill="none" stroke="#CC79A7" stroke-width="2" points="62.0,240.1 179.5,186.7 268.4,129.5 357.3,78.0 446.2,56.7 535.1,54.1 624.0,54.0"/>
+<line x1="62" y1="238.78106778601324" x2="62" y2="241.4184262049949" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="62.0" cy="240.1" r="3.4" fill="#CC79A7"/>
+<line x1="179.5153494592118" y1="185.23707249881642" x2="179.5153494592118" y2="188.20339320748138" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="179.5" cy="186.7" r="3.4" fill="#CC79A7"/>
+<line x1="268.4122795673694" y1="128.53612038564222" x2="268.4122795673694" y2="130.5276935240454" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="268.4" cy="129.5" r="3.4" fill="#CC79A7"/>
+<line x1="357.30920967552714" y1="77.0432196094105" x2="357.30920967552714" y2="79.04230299198889" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="357.3" cy="78.0" r="3.4" fill="#CC79A7"/>
+<line x1="446.20613978368476" y1="56.400428230214374" x2="446.20613978368476" y2="57.04886252816786" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="446.2" cy="56.7" r="3.4" fill="#CC79A7"/>
+<line x1="535.1030698918423" y1="54.03886196138441" x2="535.1030698918423" y2="54.10429546622723" stroke="#CC79A7" stroke-width="1.2"/>
+<circle cx="535.1" cy="54.1" r="3.4" fill="#CC79A7"/>
+<circle cx="624.0" cy="54.0" r="3.4" fill="#CC79A7"/>
+<line x1="62" y1="360" x2="84" y2="360" stroke="#CC79A7" stroke-width="2"/><text x="90" y="364" fill="#111">Escalate 2 to 3 km (ours)</text>
+</svg>

@@ -1,0 +1,109 @@
+{
+  "density": 0.2,
+  "seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "defaults": {
+    "densityPerKm2": 0.3,
+    "incidents": 5000,
+    "seed": 1,
+    "cityRadiusKm": 8,
+    "acceptProb": 0.4,
+    "acceptMedianS": 25,
+    "acceptSigma": 0.8,
+    "speedKmh": 20,
+    "detourFactor": 1.4,
+    "cap": 20,
+    "ring1Km": 2,
+    "ring2Km": 3,
+    "widenAfterS": 60,
+    "deadlineS": 600
+  },
+  "sweeps": {
+    "speedKmh": [
+      {
+        "value": 10,
+        "broadcast": "27.51 on time / 40.24 alerts",
+        "fixed2": "27.51 on time / 2.51 alerts",
+        "fixed3": "27.51 on time / 5.66 alerts",
+        "escalate": "27.51 on time / 3.84 alerts"
+      },
+      {
+        "value": 15,
+        "broadcast": "51.30 on time / 40.24 alerts",
+        "fixed2": "51.30 on time / 2.51 alerts",
+        "fixed3": "51.30 on time / 5.66 alerts",
+        "escalate": "51.30 on time / 3.84 alerts"
+      },
+      {
+        "value": 20,
+        "broadcast": "72.31 on time / 40.24 alerts",
+        "fixed2": "63.17 on time / 2.51 alerts",
+        "fixed3": "72.31 on time / 5.66 alerts",
+        "escalate": "65.04 on time / 3.84 alerts"
+      },
+      {
+        "value": 30,
+        "broadcast": "94.19 on time / 40.24 alerts",
+        "fixed2": "63.42 on time / 2.51 alerts",
+        "fixed3": "89.57 on time / 5.66 alerts",
+        "escalate": "88.87 on time / 3.84 alerts"
+      }
+    ],
+    "deadlineS": [
+      {
+        "value": 300,
+        "broadcast": "24.93 on time / 40.24 alerts",
+        "fixed2": "24.93 on time / 2.51 alerts",
+        "fixed3": "24.93 on time / 5.66 alerts",
+        "escalate": "24.93 on time / 3.84 alerts"
+      },
+      {
+        "value": 600,
+        "broadcast": "72.31 on time / 40.24 alerts",
+        "fixed2": "63.17 on time / 2.51 alerts",
+        "fixed3": "72.31 on time / 5.66 alerts",
+        "escalate": "65.04 on time / 3.84 alerts"
+      },
+      {
+        "value": 900,
+        "broadcast": "94.78 on time / 40.24 alerts",
+        "fixed2": "63.43 on time / 2.51 alerts",
+        "fixed3": "89.70 on time / 5.66 alerts",
+        "escalate": "89.58 on time / 3.84 alerts"
+      }
+    ],
+    "acceptProb": [
+      {
+        "value": 0.2,
+        "broadcast": "47.32 on time / 40.24 alerts",
+        "fixed2": "39.38 on time / 2.51 alerts",
+        "fixed3": "47.32 on time / 5.66 alerts",
+        "escalate": "40.87 on time / 4.55 alerts"
+      },
+      {
+        "value": 0.4,
+        "broadcast": "72.31 on time / 40.24 alerts",
+        "fixed2": "63.17 on time / 2.51 alerts",
+        "fixed3": "72.31 on time / 5.66 alerts",
+        "escalate": "65.04 on time / 3.84 alerts"
+      },
+      {
+        "value": 0.6,
+        "broadcast": "85.28 on time / 40.24 alerts",
+        "fixed2": "77.64 on time / 2.51 alerts",
+        "fixed3": "85.28 on time / 5.66 alerts",
+        "escalate": "79.27 on time / 3.37 alerts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="On-time rate: escalation minus fixed 3 km">
+<rect width="640" height="380" fill="#ffffff"/>
+<text x="320" y="22" text-anchor="middle" font-size="14" font-weight="600" fill="#111">On-time rate: escalation minus fixed 3 km</text>
+<line x1="62" y1="262.1625703978616" x2="624" y2="262.1625703978616" stroke="#e3e6ea"/>
+<text x="54" y="266.1625703978616" text-anchor="end" fill="#333">-6</text>
+<line x1="62" y1="193.12724818976935" x2="624" y2="193.12724818976935" stroke="#e3e6ea"/>
+<text x="54" y="197.12724818976935" text-anchor="end" fill="#333">-4</text>
+<line x1="62" y1="124.09192598167712" x2="624" y2="124.09192598167712" stroke="#e3e6ea"/>
+<text x="54" y="128.09192598167712" text-anchor="end" fill="#333">-2</text>
+<line x1="62" y1="55.0566037735849" x2="624" y2="55.0566037735849" stroke="#e3e6ea"/>
+<text x="54" y="59.0566037735849" text-anchor="end" fill="#333">0</text>
+<line x1="186.79173149588797" y1="306" x2="186.79173149588797" y2="310" stroke="#333"/>
+<text x="186.79173149588797" y="324" text-anchor="middle" fill="#333">200</text>
+<line x1="311.70837963992" y1="306" x2="311.70837963992" y2="310" stroke="#333"/>
+<text x="311.70837963992" y="324" text-anchor="middle" fill="#333">400</text>
+<line x1="436.625027783952" y1="306" x2="436.625027783952" y2="310" stroke="#333"/>
+<text x="436.625027783952" y="324" text-anchor="middle" fill="#333">600</text>
+<line x1="561.541675927984" y1="306" x2="561.541675927984" y2="310" stroke="#333"/>
+<text x="561.541675927984" y="324" text-anchor="middle" fill="#333">800</text>
+<line x1="62" y1="306" x2="624" y2="306" stroke="#333"/><line x1="62" y1="40" x2="62" y2="306" stroke="#333"/>
+<text x="343" y="344" text-anchor="middle" fill="#111">Parameter value (see legend)</text>
+<text transform="translate(16 173) rotate(-90)" text-anchor="middle" fill="#111">Percentage points</text>
+<polyline fill="none" stroke="#0072B2" stroke-width="2" points="68.1,55.1 71.2,55.1 74.4,306.0 80.6,79.2"/>
+<circle cx="68.1" cy="55.1" r="3.4" fill="#0072B2"/>
+<circle cx="71.2" cy="55.1" r="3.4" fill="#0072B2"/>
+<circle cx="74.4" cy="306.0" r="3.4" fill="#0072B2"/>
+<circle cx="80.6" cy="79.2" r="3.4" fill="#0072B2"/>
+<line x1="62" y1="360" x2="84" y2="360" stroke="#0072B2" stroke-width="2"/><text x="90" y="364" fill="#111">travel speed (km/h)</text>
+<polyline fill="none" stroke="#D55E00" stroke-width="2" points="249.3,55.1 436.6,306.0 624.0,59.2"/>
+<circle cx="249.3" cy="55.1" r="3.4" fill="#D55E00"/>
+<circle cx="436.6" cy="306.0" r="3.4" fill="#D55E00"/>
+<circle cx="624.0" cy="59.2" r="3.4" fill="#D55E00"/>
+<line x1="249.33333333333334" y1="360" x2="271.33333333333337" y2="360" stroke="#D55E00" stroke-width="2"/><text x="277.33333333333337" y="364" fill="#111">deadline (s)</text>
+<polyline fill="none" stroke="#009E73" stroke-width="2" points="62.0,277.7 62.1,306.0 62.2,262.5"/>
+<circle cx="62.0" cy="277.7" r="3.4" fill="#009E73"/>
+<circle cx="62.1" cy="306.0" r="3.4" fill="#009E73"/>
+<circle cx="62.2" cy="262.5" r="3.4" fill="#009E73"/>
+<line x1="436.6666666666667" y1="360" x2="458.6666666666667" y2="360" stroke="#009E73" stroke-width="2"/><text x="464.6666666666667" y="364" fill="#111">acceptance probability</text>
+</svg>
