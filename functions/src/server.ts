@@ -308,7 +308,9 @@ export function createApp(opts: AppOptions = {}) {
   };
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+// Windows paths are case-insensitive, and the drive letter can differ between the two forms.
+const samePath = (a: string, b: string) => (process.platform === "win32" ? a.toLowerCase() === b.toLowerCase() : a === b);
+if (process.argv[1] && samePath(fileURLToPath(import.meta.url), path.resolve(process.argv[1]))) {
   const port = Number(process.env.PORT ?? 3000);
   const app = createApp();
   app.server.listen(port, "127.0.0.1", () => {
