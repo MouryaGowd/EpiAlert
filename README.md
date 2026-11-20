@@ -8,7 +8,7 @@ Prototype scope: runs locally, in memory, no Firebase, no SMS (the login code is
 
 Install Node.js 20 or newer (LTS) from https://nodejs.org, then double-click `start.bat`. The first run installs dependencies (needs internet), builds, starts the server and opens http://localhost:3000. Other uses: `start.bat test` runs the tests, `start.bat experiments` regenerates the paper results. If Windows SmartScreen warns about the file, choose More info, then Run anyway. If port 3000 is busy, run `set PORT=4000` in a Command Prompt first, then `start.bat`.
 
-The batch file has not been run on Windows by its author. Please report any error text.
+The batch file has not been run on Windows by its author. Please report any error text. The full step-by-step guide is in [docs/WINDOWS_GUIDE.md](docs/WINDOWS_GUIDE.md).
 
 ## Run it (needs only Node 20 or newer)
 
